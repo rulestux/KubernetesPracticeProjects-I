@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+# chave do tipo do arquivo:
+kind: Deployment
+# chave com informações do projeto:
+metadata:
+  name: flask-app-deployment
+# chave com especificações gerais da aplicação:
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      labels:
+        app: flask-app
+    # especificações do contêiner:
+    spec:
+      containers:
+        - name: flask
+          image: tuxrules/flask-kube-project
